@@ -3,9 +3,17 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="background">
-      <h1>footer</h1>
-    </div>
+    <footer className="background text-center text-lg-start py-4">
+      <div className="text-center p-3">
+        <p className="text-center text-white">
+          All rights reserved by
+          <span className="text-dark">
+            <strong className="text-dark mx-2">Freshta</strong>
+          </span>
+          &copy;2022.
+        </p>
+      </div>
+    </footer>
   );
 };
 

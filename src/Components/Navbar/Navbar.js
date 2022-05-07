@@ -16,7 +16,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <img src={logo} alt="" />
-          <Link class="navbar-brand ms-1 fs-4" to="/">
+          <Link className="navbar-brand ms-1 fs-4" to="/">
             Freshta Management System
           </Link>
           <button
@@ -47,7 +47,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive ? "active-link" : "link"
                   }
-                  to="/manageItem"
+                  to="/manageInventories"
                 >
                   Manage Item
                 </NavLink>

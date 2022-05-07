@@ -1,0 +1,25 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+.card-detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.card {
+  border-radius: 20px;
+  border: none;
+  padding: 15px 10px;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+.card:hover {
+  padding-top: 10px;
+}
+.card-img-top {
+  padding: 10px;
+}
+.card-img-top img {
+  border-radius: 50px;
+}

@@ -11,6 +11,7 @@ import Signin from "./Components/Signin/Signin";
 import Register from "./Components/Register/Register";
 import ManageItem from "./Components/ManageItem/ManageItem";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import SelectedItem from "./Components/SelectedItem/SelectedItem";
 
 function App() {
   return (
@@ -19,7 +20,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/manageItem" element={<ManageItem></ManageItem>}></Route>
+        <Route
+          path="/inventory/:id"
+          element={<SelectedItem></SelectedItem>}
+        ></Route>
+        <Route
+          path="/manageInventories"
+          element={<ManageItem></ManageItem>}
+        ></Route>
         <Route
           path="/addItem"
           element={
