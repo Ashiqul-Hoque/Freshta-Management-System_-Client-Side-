@@ -44,8 +44,6 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
     await createUserWithEmailAndPassword(email, password);
 
     await updateProfile({ displayName: name });
