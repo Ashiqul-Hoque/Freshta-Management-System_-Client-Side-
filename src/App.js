@@ -22,11 +22,19 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route
           path="/inventory/:id"
-          element={<SelectedItem></SelectedItem>}
+          element={
+            <PrivateRoute>
+              <SelectedItem></SelectedItem>
+            </PrivateRoute>
+          }
         ></Route>
         <Route
           path="/manageInventories"
-          element={<ManageItem></ManageItem>}
+          element={
+            <PrivateRoute>
+              <ManageItem></ManageItem>
+            </PrivateRoute>
+          }
         ></Route>
         <Route
           path="/addItem"

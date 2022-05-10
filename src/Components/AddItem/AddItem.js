@@ -8,7 +8,7 @@ const AddItem = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const url = `http://localhost:5000/products`;
+    const url = `http://localhost:5000/product`;
     fetch(url, {
       method: "POST",
       headers: {

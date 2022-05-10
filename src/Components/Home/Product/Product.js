@@ -11,12 +11,12 @@ const Product = (props) => {
 
   return (
     <div className="card">
+      <h5 className="card-title text-center">{name}</h5>
       <div className="card-detail">
         <div className="d-block my-auto">
           <img src={img} className="card-img-top" alt="" />
         </div>
         <div className="card-body">
-          <h5 className="card-title text-center">{name}</h5>
           <p>
             Stock: {quantity} {unit}
           </p>

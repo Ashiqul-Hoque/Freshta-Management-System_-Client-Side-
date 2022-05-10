@@ -42,37 +42,43 @@ const Navbar = () => {
                   Home
                 </NavLink>
               </li>
-              <li className="my-auto">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active-link" : "link"
-                  }
-                  to="/manageInventories"
-                >
-                  Manage Item
-                </NavLink>
-              </li>
 
-              <li className="my-auto">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active-link" : "link"
-                  }
-                  to="/addItem"
-                >
-                  Add Item
-                </NavLink>
-              </li>
-              <li className="my-auto">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "active-link" : "link"
-                  }
-                  to="/myItem"
-                >
-                  My Items
-                </NavLink>
-              </li>
+              {user && (
+                <>
+                  <li className="my-auto">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active-link" : "link"
+                      }
+                      to="/manageInventories"
+                    >
+                      Manage Item
+                    </NavLink>
+                  </li>
+
+                  <li className="my-auto">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active-link" : "link"
+                      }
+                      to="/addItem"
+                    >
+                      Add Item
+                    </NavLink>
+                  </li>
+
+                  <li className="my-auto">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? "active-link" : "link"
+                      }
+                      to="/myItem"
+                    >
+                      My Items
+                    </NavLink>
+                  </li>
+                </>
+              )}
 
               <li className="my-auto">
                 <NavLink
