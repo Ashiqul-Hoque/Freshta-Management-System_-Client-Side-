@@ -9,6 +9,24 @@ const ManageItem = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
 
+  const handleDelete = (id) => {
+    console.log("clicked", id);
+    const proceed = window.confirm("Are you sure?");
+    if (proceed) {
+      const url = `http://localhost:5000/products/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = allProducts.filter((product) => product._id !== id);
+          console.log(remaining);
+          setAllProducts(remaining);
+        });
+    }
+  };
+
   return (
     <div>
       <div className="review-heading">
@@ -22,7 +40,11 @@ const ManageItem = () => {
       </div>
       <div className="card-container px-5 my-5">
         {allProducts.map((product) => (
-          <SingleProduct product={product} key={product._id}></SingleProduct>
+          <SingleProduct
+            product={product}
+            key={product._id}
+            handleDelete={handleDelete}
+          ></SingleProduct>
         ))}
       </div>
     </div>

@@ -47,17 +47,14 @@ const Signin = () => {
     if (email) {
       await sendPasswordResetEmail(email);
       toast("Email sent");
-    } else {
-      toast("Please enter your email address");
     }
   };
   return (
-    <div className="login-section">
-      <div>{/* <img className="w-100" src={login} alt="" /> */}</div>
-      <div className="w-75 mx-auto">
-        <h2 className="text-center mt-4">Log In</h2>
+    <div className="login-background text-white py-4">
+      <div className="w-25 mx-auto">
+        <h2 className="text-center">Log In</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
+          <div>
             <label for="exampleInputEmail1" className="form-label">
               Email address
             </label>
@@ -91,9 +88,9 @@ const Signin = () => {
           </button>
         </form>
         <SocialLogin></SocialLogin>
-        <ToastContainer></ToastContainer>
+        <ToastContainer position="top-right"></ToastContainer>
         <p className="mb-1">
-          New to Healthy Smile?
+          New here ?
           <Link
             to="/register"
             className="text-danger pe-auto text-decoration-none ms-2"

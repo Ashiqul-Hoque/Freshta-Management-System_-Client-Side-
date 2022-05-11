@@ -50,11 +50,10 @@ const Register = () => {
     navigate("/home");
   };
   return (
-    <div className="register-section">
-      <div>{/* <img className="w-100" src={register} alt="" /> */}</div>
+    <div className="register-section login-background text-white py-4">
       <div>
-        <h2 className="text-center mt-4">Please Register</h2>
-        <div className="w-75 mx-auto">
+        <h2 className="text-center">Please Register</h2>
+        <div className="w-25 mx-auto">
           <form onSubmit={handleRegister}>
             <div className="mb-3">
               <label for="exampleInputName1" className="form-label">
