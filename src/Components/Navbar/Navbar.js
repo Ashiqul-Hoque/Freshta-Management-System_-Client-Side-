@@ -14,8 +14,8 @@ const Navbar = () => {
   return (
     <div className="sticky-top">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container">
-          <img src={logo} alt="" />
+        <div>
+          <img className="ms-2" src={logo} alt="" />
           <Link className="navbar-brand ms-1 fs-4" to="/">
             Freshta Management System
           </Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse " id="navbarNav">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 navList">
               <li className="my-auto">
                 <NavLink

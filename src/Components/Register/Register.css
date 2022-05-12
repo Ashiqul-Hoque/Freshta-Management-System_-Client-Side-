@@ -1,0 +1,15 @@
+.reg-container {
+  width: 40%;
+}
+@media only screen and (max-width: 720px) {
+  .reg-container {
+    width: 100%;
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1050px) {
+  .reg-container {
+    width: 70%;
+  }
+}

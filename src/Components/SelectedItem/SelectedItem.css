@@ -1,0 +1,38 @@
+.card-detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 60%;
+}
+.card-detail img {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+.card-body {
+  padding: 20px 0;
+  margin-left: 30px;
+}
+
+@media only screen and (max-width: 720px) {
+  .card-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 0 20px;
+  }
+  .card-body {
+    padding: 0px;
+    margin-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1050px) {
+  .card-detail {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .card-body {
+    padding: 30px 0;
+    margin-left: 0px;
+  }
+}

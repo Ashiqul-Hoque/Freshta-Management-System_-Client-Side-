@@ -51,7 +51,7 @@ const Signin = () => {
   };
   return (
     <div className="login-background text-white py-4">
-      <div className="w-25 mx-auto">
+      <div className="login-container mx-auto">
         <h2 className="text-center">Log In</h2>
         <form onSubmit={handleSubmit}>
           <div>

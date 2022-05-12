@@ -64,14 +64,14 @@ const SelectedItem = () => {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <div>
-        <h5 className="card-title text-center">{product.name}</h5>
-        <div className="card-detail">
+        <h4 className="card-title text-center">{product.name}</h4>
+        <div className="card-detail mx-auto">
           <div className="d-block my-auto">
             <img src={product.img} className="card-img-top" alt="" />
           </div>
-          <div className="card-body ps-4">
+          <div className="card-body">
             <p className="mb-1">
               Stock Quantity: {product.quantity} {product.unit}
             </p>
@@ -80,7 +80,7 @@ const SelectedItem = () => {
             </p>
             <p className="mb-1">Supplier : {product.supplier}</p>
             <button
-              className="btn btn-primary d-block mx-auto px-5"
+              className="btn btn-primary d-block mx-auto px-5 mt-4"
               onClick={() => handleUpdate(id)}
             >
               Delivered
@@ -88,7 +88,7 @@ const SelectedItem = () => {
 
             <form
               onSubmit={handleRestock}
-              className="form-inline mt-5 d-flex align-items-center"
+              className="form-inline my-4 d-flex align-items-center"
             >
               <div className="form-group d-flex align-items-center">
                 <label for="exampleInputEmail1">Restock</label>

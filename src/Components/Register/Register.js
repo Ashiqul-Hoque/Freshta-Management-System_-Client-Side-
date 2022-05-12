@@ -53,7 +53,7 @@ const Register = () => {
     <div className="register-section login-background text-white py-4">
       <div>
         <h2 className="text-center">Please Register</h2>
-        <div className="w-25 mx-auto">
+        <div className="reg-container mx-auto">
           <form onSubmit={handleRegister}>
             <div className="mb-3">
               <label for="exampleInputName1" className="form-label">

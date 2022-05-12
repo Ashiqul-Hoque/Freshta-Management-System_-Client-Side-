@@ -44,34 +44,44 @@ const Slider = () => {
           <div className="carousel-item active">
             <img src={veg} className="d-block w-100" alt="" />
             <div className="carousel-caption d-none d-md-block d-md-my-auto">
-              <h5>First slide label</h5>
+              <h5>
+                "Organic food is the best for you, and I'm eating the best, a
+                lot of fresh vegetables. I also keep myself hydrated. It's all
+                made a big difference to my performance in the gym."
+              </h5>
+              <p>- Amir Khan</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src={fruits} className="d-block w-100" alt="" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
+              <h5>
+                {" "}
+                “Apples, grapes… any kind of fruit gives me the energy I need to
+                get through my busy day.”
+              </h5>
+              <p>- Kristin Chenoweth</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src={meat} className="d-block w-100" alt="" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>
-                Some representative placeholder content for the second slide.
-              </p>
+              <h5>
+                "Everything tastes better with butter. Meat that has fat in it
+                is tender in a certain way, flavorful in a certain way. It's
+                hard to deny the flavor quotient there."
+              </h5>
+              <p>- Alice Waters</p>
             </div>
           </div>
           <div className="carousel-item">
             <img src={fish} className="d-block w-100" alt="" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>
-                Some representative placeholder content for the third slide.
-              </p>
+              <h5>
+                "In the hands of an able cook, fish can become an inexhaustible
+                source of perpetual delight."
+              </h5>
+              <p>- Jean-Anthelme Brillat-Savarin</p>
             </div>
           </div>
         </div>

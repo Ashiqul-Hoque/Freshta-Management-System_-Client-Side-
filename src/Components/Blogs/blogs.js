@@ -3,7 +3,7 @@ import "./Blogs.css";
 
 const blogs = () => {
   return (
-    <div className="container my-3">
+    <div className="container my-3 px-4">
       <div className="mb-5">
         <h5 className="text-primary">
           What is the difference between Javascript and nodejs ?

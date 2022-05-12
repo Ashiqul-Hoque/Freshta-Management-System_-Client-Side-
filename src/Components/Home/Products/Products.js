@@ -81,14 +81,49 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="graph-section">
         <div>
           <h3 className="text-center text-primary">Sells Target Vs Sells </h3>
           <h3 className="mt-1 text-center text-primary">(Last 6 months) </h3>
           <div className="d-flex justify-content-center">
             <AreaChart
-              width={800}
-              height={410}
+              width={400}
+              height={350}
+              data={data}
+              margin={{
+                top: 30,
+                right: 30,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Area
+                type="monotone"
+                dataKey="target"
+                stroke="#9900FF"
+                fill="#9850FF"
+              />
+              <Area
+                type="monotone"
+                dataKey="sells"
+                stroke="#009999"
+                fill="#009999"
+              />
+            </AreaChart>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-center text-primary">Sells Target Vs Sells </h3>
+          <h3 className="mt-1 text-center text-primary">(Last 6 months) </h3>
+          <div className="d-flex justify-content-center">
+            <AreaChart
+              width={400}
+              height={350}
               data={data}
               margin={{
                 top: 30,
