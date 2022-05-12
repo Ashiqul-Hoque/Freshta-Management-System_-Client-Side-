@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Area,
   AreaChart,
+  Bar,
+  BarChart,
   CartesianGrid,
   Legend,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -15,46 +16,28 @@ import Product from "../Product/Product";
 import "./Products.css";
 
 const Products = () => {
-  const [allProducts, setAllProducts] = useAllProducts();
+  const [allProducts] = useAllProducts();
   const navigate = useNavigate();
 
-  let vegetables = allProducts.filter((pd) => pd.category == "Vegetable");
-  let fruits = allProducts.filter((pd) => pd.category == "Fruit");
-  let meat = allProducts.filter((pd) => pd.category == "Meat");
-  let fish = allProducts.filter((pd) => pd.category == "Fish");
+  const [graphOneData, setGraphOneData] = useState([]);
+  const [graphTwoData, setGraphTwoData] = useState([]);
 
-  const data = [
-    {
-      month: "January",
-      target: 100000,
-      sells: 75000,
-    },
-    {
-      month: "february",
-      target: 120000,
-      sells: 150000,
-    },
-    {
-      month: "March",
-      target: 200000,
-      sells: 210000,
-    },
-    {
-      month: "April",
-      target: 300000,
-      sells: 240000,
-    },
-    {
-      month: "May",
-      target: 375000,
-      sells: 450000,
-    },
-    {
-      month: "June",
-      target: 500000,
-      sells: 420000,
-    },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:5000/dataOne")
+      .then((response) => response.json())
+      .then((data) => setGraphOneData(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/dataTwo")
+      .then((response) => response.json())
+      .then((data) => setGraphTwoData(data));
+  }, []);
+
+  let vegetables = allProducts.filter((pd) => pd.category === "Vegetable");
+  let fruits = allProducts.filter((pd) => pd.category === "Fruit");
+  let meat = allProducts.filter((pd) => pd.category === "Meat");
+  let fish = allProducts.filter((pd) => pd.category === "Fish");
 
   return (
     <div>
@@ -81,15 +64,15 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="graph-section">
-        <div>
+      <div className="graph-section py-5">
+        <div className="mb-4">
           <h3 className="text-center text-primary">Sells Target Vs Sells </h3>
           <h3 className="mt-1 text-center text-primary">(Last 6 months) </h3>
           <div className="d-flex justify-content-center">
             <AreaChart
               width={400}
               height={350}
-              data={data}
+              data={graphOneData}
               margin={{
                 top: 30,
                 right: 30,
@@ -118,13 +101,13 @@ const Products = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-center text-primary">Sells Target Vs Sells </h3>
-          <h3 className="mt-1 text-center text-primary">(Last 6 months) </h3>
+          <h4 className="text-center text-primary">Expenditure Vs Revenue </h4>
+          <h4 className="mt-1 text-center text-primary">(Last 6 months) </h4>
           <div className="d-flex justify-content-center">
-            <AreaChart
+            <BarChart
               width={400}
               height={350}
-              data={data}
+              data={graphTwoData}
               margin={{
                 top: 30,
                 right: 30,
@@ -134,27 +117,17 @@ const Products = () => {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
-              <YAxis />
+              <YAxis dataKey="" />
               <Tooltip />
               <Legend />
-              <Area
-                type="monotone"
-                dataKey="target"
-                stroke="#9900FF"
-                fill="#9850FF"
-              />
-              <Area
-                type="monotone"
-                dataKey="sells"
-                stroke="#009999"
-                fill="#009999"
-              />
-            </AreaChart>
+              <Bar dataKey="expenditure" fill="#3399FF" />
+              <Bar dataKey="revenue" fill="#4DB6AC" />
+            </BarChart>
           </div>
         </div>
       </div>
       <div className="review-heading">
-        <h2 className="text-center my-5">Popular Products</h2>
+        <h2 className="text-center my-4">Popular Products</h2>
       </div>
       <div className="card-container px-5 my-5">
         {allProducts.slice(0, 6).map((product) => (

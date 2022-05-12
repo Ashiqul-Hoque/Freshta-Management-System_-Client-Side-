@@ -12,18 +12,18 @@ const Product = (props) => {
   return (
     <div className="card">
       <h5 className="card-title text-center">{name}</h5>
-      <div className="card-detail">
+      <div className="card-info">
         <div className="d-block my-auto">
           <img src={img} className="card-img-top" alt="" />
         </div>
-        <div className="card-body">
+        <div className="card-body ms-4">
           <p>
             Stock: {quantity} {unit}
           </p>
           <p>
             Price: Tk. {price}/ {unit}
           </p>
-          <p>Supplier Name: {supplier}</p>
+          <p>Supplier: {supplier}</p>
         </div>
       </div>
 

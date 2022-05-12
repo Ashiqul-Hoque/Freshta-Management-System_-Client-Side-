@@ -17,6 +17,9 @@
 @media only screen and (max-width: 1000px) {
   .signout-btn {
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 10px;
+  }
+  .navbar-nav {
+    margin-top: 10px;
   }
 }

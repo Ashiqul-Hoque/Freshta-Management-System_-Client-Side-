@@ -16,16 +16,7 @@ const AddItem = () => {
     const quantity = event.target.quantity.value;
     const supplier = event.target.supplier.value;
     const userEmail = user.email;
-    // console.log(
-    //   name,
-    //   img,
-    //   category,
-    //   price,
-    //   unit,
-    //   quantity,
-    //   supplier,
-    //   userEmail
-    // );
+
     const url = `http://localhost:5000/product`;
     fetch(url, {
       method: "POST",
@@ -51,7 +42,7 @@ const AddItem = () => {
 
   return (
     <div>
-      <h2 className="text-center mt-4">Add Item</h2>
+      <h2 className="text-center mt-4 text-primary">Add Item</h2>
       <form className="form-container mx-auto" onSubmit={handleAddItem}>
         <div className="form-group mb-3">
           <label for="exampleInputEmail1">Product Name</label>

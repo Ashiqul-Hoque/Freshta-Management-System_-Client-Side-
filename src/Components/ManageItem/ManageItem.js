@@ -6,6 +6,11 @@ import "./ManageItem.css";
 
 const ManageItem = () => {
   const [allProducts, setAllProducts] = useAllProducts();
+  let vegetables = allProducts.filter((pd) => pd.category === "Vegetable");
+  let fruits = allProducts.filter((pd) => pd.category === "Fruit");
+  let meat = allProducts.filter((pd) => pd.category === "Meat");
+  let fish = allProducts.filter((pd) => pd.category === "Fish");
+
   const navigate = useNavigate();
   const { productId } = useParams();
 
@@ -30,7 +35,7 @@ const ManageItem = () => {
   return (
     <div>
       <div className="review-heading">
-        <h2 className="text-center my-4">All Products</h2>
+        <h2 className="text-center my-4 text-primary">All Products</h2>
         <button
           className="btn btn-primary d-block mx-auto px-5"
           onClick={() => navigate("/additem")}
@@ -38,14 +43,53 @@ const ManageItem = () => {
           + Add New Item
         </button>
       </div>
-      <div className="card-container px-5 my-5">
-        {allProducts.map((product) => (
-          <SingleProduct
-            product={product}
-            key={product._id}
-            handleDelete={handleDelete}
-          ></SingleProduct>
-        ))}
+      <div className="my-5">
+        <h3 className="ms-5 text-primary">Vegetables</h3>
+        <div className="card-container px-5 my-4">
+          {vegetables.map((product) => (
+            <SingleProduct
+              product={product}
+              key={product._id}
+              handleDelete={handleDelete}
+            ></SingleProduct>
+          ))}
+        </div>
+      </div>
+      <div className="my-5">
+        <h3 className="ms-5 text-primary">Fruits</h3>
+        <div className="card-container px-5 my-4">
+          {fruits.map((product) => (
+            <SingleProduct
+              product={product}
+              key={product._id}
+              handleDelete={handleDelete}
+            ></SingleProduct>
+          ))}
+        </div>
+      </div>
+      <div className="my-5">
+        <h3 className="ms-5 text-primary">Meat</h3>
+        <div className="card-container px-5 my-4">
+          {meat.map((product) => (
+            <SingleProduct
+              product={product}
+              key={product._id}
+              handleDelete={handleDelete}
+            ></SingleProduct>
+          ))}
+        </div>
+      </div>
+      <div className="my-5">
+        <h3 className="ms-5 text-primary">Fish</h3>
+        <div className="card-container px-5 my-4">
+          {fish.map((product) => (
+            <SingleProduct
+              product={product}
+              key={product._id}
+              handleDelete={handleDelete}
+            ></SingleProduct>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -8,11 +8,11 @@ const SingleProduct = (props) => {
     <div>
       <div className="card">
         <h5 className="card-title text-center">{name}</h5>
-        <div className="card-detail">
+        <div className="product-info">
           <div className="d-block my-auto">
             <img src={img} className="card-img-top" alt="" />
           </div>
-          <div className="card-body ps-4">
+          <div className="card-body">
             <p className="mb-1">
               Stock: {quantity} {unit}
             </p>
