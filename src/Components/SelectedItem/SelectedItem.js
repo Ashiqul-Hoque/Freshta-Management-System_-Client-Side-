@@ -12,11 +12,10 @@ const SelectedItem = () => {
 
   useEffect(() => {
     const url = `http://localhost:5000/products/${id}`;
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, []);
+  }, [id]);
 
   const handleUpdate = (id) => {
     const previousQuantity = parseInt(product.quantity);
@@ -24,19 +23,44 @@ const SelectedItem = () => {
     const updatedQuantity = quantity;
     console.log(updatedQuantity);
 
-    const url = `http://localhost:5000/products/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ updatedQuantity }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setAllProducts(data);
-      });
+    // const url = `http://localhost:5000/products/${id}`;
+    // fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ updatedQuantity }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setAllProducts(data);
+    //   });
+  };
+
+  const handleRestock = (e, id) => {
+    e.preventDefault();
+    const restockAmount = parseInt(e.target.amount.value);
+    console.log(restockAmount);
+
+    const previousQuantity = parseInt(product.quantity);
+    console.log(previousQuantity);
+    const newQuantity = previousQuantity + restockAmount;
+    console.log(newQuantity);
+
+    // const url = `http://localhost:5000/products/${id}`;
+    // fetch(url, {
+    //   method: "PUT",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({ newQuantity }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setAllProducts(data);
+    //   });
   };
 
   return (
@@ -61,21 +85,21 @@ const SelectedItem = () => {
             >
               Delivered
             </button>
-            <form className="form-inline mt-5 d-flex align-items-center">
-              <div className="form-group mx-sm-3 mb-2 d-flex align-items-center">
-                <label for="inputPassword2" className="sr-only me-4">
-                  Restock
-                </label>
+
+            <form
+              onSubmit={handleRestock}
+              className="form-inline mt-5 d-flex align-items-center"
+            >
+              <div className="form-group d-flex align-items-center">
+                <label for="exampleInputEmail1">Restock</label>
                 <input
                   type="number"
-                  value="quantity"
-                  className="form-control"
-                  id="inputAmount"
+                  className="form-control ms-3"
                   placeholder="Amount"
-                  required
+                  name="amount"
                 />
               </div>
-              <button type="submit" className="btn btn-primary mb-2">
+              <button type="submit" className="btn btn-primary ms-3">
                 Confirm Restock
               </button>
             </form>

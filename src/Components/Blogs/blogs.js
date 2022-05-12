@@ -56,37 +56,94 @@ const blogs = () => {
           storing data.
         </p>
         <p>
-          Any project needs a programming environment and a runtime library that
-          offers you basic programming tools/support and can compile and/or
+          If any project needs a programming environment and a runtime library
+          that offers you basic programming tools/support and can compile and/or
           interpret your code. Nodejs is such as tool for the Javascript
-          programming language. There are other similar tools for other
-          languages such as Python, Java, PHP, C#, C++, Go, etc... So, if you
-          want to write some kind of stand-alone program or server in
-          Javascript, then you can use nodejs for it.
+          programming language.
           <br />
-          If your application needs the ability to persistently store data in a
-          way that you can efficiently query or update it later, then you would
-          typically use some form of database. There are dozens of popular
-          databases. MongoDB is one such database. MariaDB, MySql, CouchDB,
-          DynamoDB (on AWS), Postgres are examples of other databases. Different
-          databases have different strengths (things they are best at) and
-          different ways of using them so it's a whole different question to
-          choose the right/best database for what you're doing.
+          If an application needs the ability to persistently store data in a
+          way that one can efficiently query or update it later, then MongoDB is
+          best for the development.
         </p>
       </div>
       <div className="mb-5">
         <h5 className="text-primary">
           What are the differences between sql and nosql databases ?
         </h5>
-        <p></p>
-        <p></p>
+        <div>
+          <p> The differences between sql and nosql databases are: </p>
+          <table class="border border-info mx-auto my-3">
+            <tr class="border border-info text-center">
+              <th class="border border-info p-2">SQL</th>
+              <th class="border border-info p-2">NoSQL</th>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">
+                Relational Database Management System (RDBMS)
+              </td>
+              <td class="border border-info p-2">
+                Non-relational or distributed database system
+              </td>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">
+                These databases have fixed or static or predefined schema
+              </td>
+              <td class="border border-info p-2">They have dynamic schema</td>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">
+                These databases are not suited for hierarchical data storage.
+              </td>
+              <td class="border border-info p-2">
+                These databases are best suited for hierarchical data storage.
+              </td>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">
+                These databases are best suited for complex queries
+              </td>
+              <td class="border border-info p-2">
+                These databases are not so good for complex queries
+              </td>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">Vertically Scalable</td>
+              <td class="border border-info p-2">Horizontally scalable</td>
+            </tr>
+            <tr class="border border-info">
+              <td class="border border-info p-2">Follows ACID property</td>
+              <td class="border border-info p-2">
+                {" "}
+                Follows CAP(consistency, availability, partition tolerance)
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
       <div className="mb-5">
         <h5 className="text-primary">
           What is the purpose of jwt (JSON Web Tokens) and how does it work ?
         </h5>
-        <p></p>
-        <p></p>
+        <p>
+          JSON Web Token (JWT) is an open standard that defines a compact and
+          self-contained way for securely transmitting information between
+          parties as a JSON object. This information can be verified and trusted
+          because it is digitally signed. JWTs can be signed using a secret
+          (with the HMAC algorithm) or a public/private key pair using RSA or
+          ECDSA.
+        </p>
+        <p>
+          In authentication, when the user successfully logs in using their
+          credentials, a JSON Web Token will be returned. JWT should not keep
+          longer than required. Whenever the user wants to access a protected
+          route or resource, the user agent should send the JWT, typically in
+          the Authorization header using the Bearer schema. This can be, in
+          certain cases, a stateless authorization mechanism. The server's
+          protected routes will check for a valid JWT in the Authorization
+          header, and if it's present, the user will be allowed to access
+          protected resources.
+        </p>
       </div>
     </div>
   );
