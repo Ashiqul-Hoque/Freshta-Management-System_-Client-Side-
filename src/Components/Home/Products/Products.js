@@ -64,71 +64,76 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div className="graph-section py-5">
-        <div className="mb-4">
-          <h3 className="text-center text-primary">Sells Target Vs Sells </h3>
-          <h3 className="mt-1 text-center text-primary">(Last 6 months) </h3>
-          <div className="d-flex justify-content-center">
-            <AreaChart
-              width={400}
-              height={350}
-              data={graphOneData}
-              margin={{
-                top: 30,
-                right: 30,
-                left: 0,
-                bottom: 0,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Area
-                type="monotone"
-                dataKey="target"
-                stroke="#9900FF"
-                fill="#9850FF"
-              />
-              <Area
-                type="monotone"
-                dataKey="sells"
-                stroke="#009999"
-                fill="#009999"
-              />
-            </AreaChart>
+
+      <div>
+        <h3 className="mt-5 pt-5 text-center text-primary">Analytics</h3>
+        <div className="graph-section py-4">
+          <div className="mb-4">
+            <h4 className="text-center text-info">Sells Target Vs Sells </h4>
+            <h5 className="mt-1 text-center text-primary">(Last 6 months) </h5>
+            <div className="d-flex justify-content-center">
+              <AreaChart
+                width={400}
+                height={350}
+                data={graphOneData}
+                margin={{
+                  top: 30,
+                  right: 30,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Area
+                  type="monotone"
+                  dataKey="target"
+                  stroke="#9900FF"
+                  fill="#9850FF"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="sells"
+                  stroke="#009999"
+                  fill="#009999"
+                />
+              </AreaChart>
+            </div>
+          </div>
+          <div>
+            <h4 className="text-center text-info">Expenditure Vs Revenue</h4>
+            <h5 className="mt-1 text-center text-primary">(Last 6 months) </h5>
+            <div className="d-flex justify-content-center">
+              <BarChart
+                width={400}
+                height={350}
+                data={graphTwoData}
+                margin={{
+                  top: 30,
+                  right: 30,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis dataKey="" />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="expenditure" fill="#3399FF" />
+                <Bar dataKey="revenue" fill="#4DB6AC" />
+              </BarChart>
+            </div>
           </div>
         </div>
-        <div>
-          <h4 className="text-center text-primary">Expenditure Vs Revenue </h4>
-          <h4 className="mt-1 text-center text-primary">(Last 6 months) </h4>
-          <div className="d-flex justify-content-center">
-            <BarChart
-              width={400}
-              height={350}
-              data={graphTwoData}
-              margin={{
-                top: 30,
-                right: 30,
-                left: 0,
-                bottom: 0,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis dataKey="" />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="expenditure" fill="#3399FF" />
-              <Bar dataKey="revenue" fill="#4DB6AC" />
-            </BarChart>
-          </div>
+        <div className="review-heading">
+          <h3 className="text-center my-4 text-primary">Popular Products</h3>
         </div>
       </div>
-      <div className="review-heading">
-        <h2 className="text-center my-4">Popular Products</h2>
-      </div>
+
       <div className="card-container px-5 my-5">
         {allProducts.slice(0, 6).map((product) => (
           <Product product={product} key={product._id}></Product>
