@@ -18,7 +18,7 @@ const ManageItem = () => {
     console.log("clicked", id);
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })

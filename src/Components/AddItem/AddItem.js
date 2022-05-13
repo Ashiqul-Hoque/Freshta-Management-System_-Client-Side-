@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 import "./AddItem.css";
 
@@ -17,7 +18,7 @@ const AddItem = () => {
     const supplier = event.target.supplier.value;
     const userEmail = user.email;
 
-    const url = `http://localhost:5000/product`;
+    const url = `https://cryptic-hollows-45399.herokuapp.com/product`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -36,7 +37,7 @@ const AddItem = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        toast("Product successfully added");
       });
   };
 
@@ -99,6 +100,7 @@ const AddItem = () => {
           Submit
         </button>
       </form>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

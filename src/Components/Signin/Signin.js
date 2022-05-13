@@ -5,6 +5,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./Signin.css";
@@ -47,6 +48,8 @@ const Signin = () => {
     if (email) {
       await sendPasswordResetEmail(email);
       toast("Email sent");
+    } else {
+      toast("Please enter your email address");
     }
   };
   return (
@@ -88,7 +91,7 @@ const Signin = () => {
           </button>
         </form>
         <SocialLogin></SocialLogin>
-        <ToastContainer position="top-right"></ToastContainer>
+        <ToastContainer position="bottom-right"></ToastContainer>
         <p className="mb-1">
           New here ?
           <Link

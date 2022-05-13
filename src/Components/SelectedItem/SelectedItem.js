@@ -11,7 +11,7 @@ const SelectedItem = () => {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -23,7 +23,7 @@ const SelectedItem = () => {
     const updatedQuantity = quantity;
     console.log(updatedQuantity);
 
-    // const url = `http://localhost:5000/products/${id}`;
+    // const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
     // fetch(url, {
     //   method: "PUT",
     //   headers: {
@@ -48,7 +48,7 @@ const SelectedItem = () => {
     const newQuantity = previousQuantity + restockAmount;
     console.log(newQuantity);
 
-    // const url = `http://localhost:5000/products/${id}`;
+    // const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
     // fetch(url, {
     //   method: "PUT",
     //   headers: {

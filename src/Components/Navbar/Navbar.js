@@ -42,6 +42,17 @@ const Navbar = () => {
               </NavLink>
             </li>
 
+            <li className="my-auto">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active-link" : "link"
+                }
+                to="/about"
+              >
+                About
+              </NavLink>
+            </li>
+
             {user && (
               <>
                 <li className="my-auto">

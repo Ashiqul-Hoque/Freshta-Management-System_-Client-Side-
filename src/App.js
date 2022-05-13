@@ -12,6 +12,7 @@ import Register from "./Components/Register/Register";
 import ManageItem from "./Components/ManageItem/ManageItem";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import SelectedItem from "./Components/SelectedItem/SelectedItem";
+import About from "./Components/About/About";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
         <Route
           path="/inventory/:id"
           element={

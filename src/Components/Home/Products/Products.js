@@ -23,13 +23,13 @@ const Products = () => {
   const [graphTwoData, setGraphTwoData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/dataOne")
+    fetch("https://cryptic-hollows-45399.herokuapp.com/dataOne")
       .then((response) => response.json())
       .then((data) => setGraphOneData(data));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/dataTwo")
+    fetch("https://cryptic-hollows-45399.herokuapp.com/dataTwo")
       .then((response) => response.json())
       .then((data) => setGraphTwoData(data));
   }, []);
