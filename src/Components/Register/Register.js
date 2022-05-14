@@ -6,6 +6,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { css } from "@emotion/react";
+import { HashLoader } from "react-spinners";
 import "./Register.css";
 
 const Register = () => {
@@ -21,12 +23,27 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const override = css`
+    display: block;
+    margin: 0 auto;
+  `;
+
+  if (loading) {
+    return (
+      <div className="py-5 my-5">
+        <HashLoader
+          color={"#123abc"}
+          loading={loading}
+          css={override}
+          size={50}
+        />
+      </div>
+    );
+  }
   const navigateLogin = () => {
     navigate("/login");
   };
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+
   if (error) {
     errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
@@ -56,7 +73,7 @@ const Register = () => {
         <div className="reg-container mx-auto">
           <form onSubmit={handleRegister}>
             <div className="mb-3">
-              <label for="exampleInputName1" className="form-label">
+              <label htmlFor="exampleInputName1" className="form-label">
                 Name
               </label>
               <input
@@ -67,7 +84,7 @@ const Register = () => {
               />
             </div>
             <div className="mb-3">
-              <label for="exampleInputEmail1" className="form-label">
+              <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
               </label>
               <input
@@ -78,7 +95,7 @@ const Register = () => {
               />
             </div>
             <div className="mb-3">
-              <label for="exampleInputPassword1" className="form-label">
+              <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
               <input

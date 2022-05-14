@@ -17,50 +17,60 @@ const SelectedItem = () => {
       .then((data) => setProduct(data));
   }, [id]);
 
-  const handleUpdate = (id) => {
-    const previousQuantity = parseInt(product.quantity);
-    const quantity = previousQuantity - 1;
-    const updatedQuantity = quantity;
-    console.log(updatedQuantity);
+  // const handleUpdate = (id) => {
+  //   const previousQuantity = parseInt(product.quantity);
+  //   const quantity = previousQuantity - 1;
+  //   const updatedQuantity = quantity;
+  //   console.log(updatedQuantity, id);
 
-    // const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ updatedQuantity }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setAllProducts(data);
-    //   });
-  };
+  //   const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
+  //   console.log(url);
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({ updatedQuantity }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setAllProducts(data);
+  //     });
+  // };
 
-  const handleRestock = (e, id) => {
-    e.preventDefault();
-    const restockAmount = parseInt(e.target.amount.value);
+  const handleRestock = (event) => {
+    console.log("clicked");
+    event.preventDefault();
+    const restockAmount = parseInt(event.target.amount.value);
     console.log(restockAmount);
 
     const previousQuantity = parseInt(product.quantity);
     console.log(previousQuantity);
     const newQuantity = previousQuantity + restockAmount;
-    console.log(newQuantity);
+    console.log(newQuantity, id);
 
-    // const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
-    // fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({ newQuantity }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setAllProducts(data);
-    //   });
+    const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
+    console.log(url);
+    console.log(JSON.stringify({ newQuantity }));
+
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ newQuantity }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(product.quantity);
+        // const updatedProduct = allProducts.filter((pd) => pd._id == id);
+        // setProduct(updatedProduct);
+        console.log(product);
+        // if (data.modifiedCount == 1) {
+        //   product.quantity = newQuantity;
+        // }
+      });
   };
 
   return (
@@ -76,12 +86,13 @@ const SelectedItem = () => {
               Stock Quantity: {product.quantity} {product.unit}
             </p>
             <p className="mb-1">
-              Price: Tk. {product.price}/ {product.unit}
+              {/* Price: Tk. {product.price}/ {product.unit} */}
+              Price:10
             </p>
             <p className="mb-1">Supplier : {product.supplier}</p>
             <button
               className="btn btn-primary d-block mx-auto px-5 mt-4"
-              onClick={() => handleUpdate(id)}
+              // onClick={() => handleUpdate(id)}
             >
               Delivered
             </button>
@@ -91,12 +102,13 @@ const SelectedItem = () => {
               className="form-inline my-4 d-flex align-items-center"
             >
               <div className="form-group d-flex align-items-center">
-                <label for="exampleInputEmail1">Restock</label>
+                <label htmlFor="exampleInputEmail1">Restock</label>
                 <input
                   type="number"
                   className="form-control ms-3"
                   placeholder="Amount"
                   name="amount"
+                  required
                 />
               </div>
               <button type="submit" className="btn btn-primary ms-3">

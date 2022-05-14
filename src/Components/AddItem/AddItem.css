@@ -2,6 +2,11 @@
   width: 40%;
 }
 
+.back-color {
+  background-color: #7f5a83;
+  background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+}
+
 @media only screen and (max-width: 720px) {
   .form-container {
     width: 100%;

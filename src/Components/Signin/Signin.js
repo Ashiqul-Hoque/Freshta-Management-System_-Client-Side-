@@ -4,6 +4,8 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { css } from "@emotion/react";
+import { HashLoader } from "react-spinners";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../firebase.init";
@@ -24,6 +26,11 @@ const Signin = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
+  const override = css`
+    display: block;
+    margin: 0 auto;
+  `;
+
   if (user) {
     navigate(from, { replace: true });
   }
@@ -40,7 +47,16 @@ const Signin = () => {
   }
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="py-5 my-5">
+        <HashLoader
+          color={"#123abc"}
+          loading={loading}
+          css={override}
+          size={50}
+        />
+      </div>
+    );
   }
 
   const resetPassword = async () => {
@@ -58,7 +74,7 @@ const Signin = () => {
         <h2 className="text-center">Log In</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
@@ -72,7 +88,7 @@ const Signin = () => {
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input

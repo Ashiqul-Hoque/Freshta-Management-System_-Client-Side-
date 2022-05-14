@@ -42,9 +42,12 @@ const AddItem = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-center mt-4 text-primary">Add Item</h2>
-      <form className="form-container mx-auto" onSubmit={handleAddItem}>
+    <div className="back-color pt-4 pb-5">
+      <h2 className="text-center text-primary">Add Item</h2>
+      <form
+        className="form-container mx-auto text-white"
+        onSubmit={handleAddItem}
+      >
         <div className="form-group mb-3">
           <label for="exampleInputEmail1">Product Name</label>
           <input
@@ -95,7 +98,7 @@ const AddItem = () => {
 
         <button
           type="submit"
-          className="w-50 d-block mx-auto my-3 btn btn-primary"
+          className="w-50 d-block mx-auto mt-4 btn btn-primary"
         >
           Submit
         </button>
