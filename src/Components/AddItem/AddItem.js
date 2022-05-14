@@ -14,7 +14,7 @@ const AddItem = () => {
     const category = event.target.category.value;
     const price = event.target.price.value;
     const unit = event.target.unit.value;
-    const quantity = event.target.quantity.value;
+    const quantity = parseInt(event.target.quantity.value);
     const supplier = event.target.supplier.value;
     const userEmail = user.email;
 
@@ -49,7 +49,7 @@ const AddItem = () => {
         onSubmit={handleAddItem}
       >
         <div className="form-group mb-3">
-          <label for="exampleInputEmail1">Product Name</label>
+          <label htmlFor="exampleInputEmail1">Product Name</label>
           <input
             type="text"
             className="form-control"
@@ -59,11 +59,11 @@ const AddItem = () => {
           />
         </div>
         <div className="form-group mb-3">
-          <label for="exampleInputPassword1">Image Link</label>
+          <label htmlFor="exampleInputPassword1">Image Link</label>
           <input className="form-control" name="image" required />
         </div>
         <div className="form-group mb-3">
-          <label for="inputState">Category (Select one)</label>
+          <label htmlFor="inputState">Category (Select one)</label>
           <select className="form-control" name="category" required>
             <option selected>Vegetable</option>
             <option>Fruit</option>
@@ -72,18 +72,18 @@ const AddItem = () => {
           </select>
         </div>
         <div className="form-group mb-3">
-          <label for="exampleInputPassword1">Price</label>
+          <label htmlFor="exampleInputPassword1">Price</label>
           <input type="number" className="form-control" name="price" required />
         </div>
         <div className="form-group mb-3">
-          <label for="inputState">Unit (Select one)</label>
+          <label htmlFor="inputState">Unit (Select one)</label>
           <select className="form-control" name="unit" required>
             <option selected>Kg</option>
             <option>Pcs</option>
           </select>
         </div>
         <div className="form-group mb-3">
-          <label for="exampleInputPassword1">Quantity</label>
+          <label htmlFor="exampleInputPassword1">Quantity</label>
           <input
             type="number"
             className="form-control"
@@ -92,7 +92,7 @@ const AddItem = () => {
           />
         </div>
         <div className="form-group mb-3">
-          <label for="exampleInputPassword1">Supplier Name</label>
+          <label htmlFor="exampleInputPassword1">Supplier Name</label>
           <input className="form-control" name="supplier" required />
         </div>
 

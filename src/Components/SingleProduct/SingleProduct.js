@@ -26,6 +26,7 @@ const SingleProduct = (props) => {
               Price: Tk. {price}/ {unit}
             </p>
             <p className="mb-1">Supplier : {supplier}</p>
+            <p className="mb-1">Product ID : {_id}</p>
           </div>
         </div>
 

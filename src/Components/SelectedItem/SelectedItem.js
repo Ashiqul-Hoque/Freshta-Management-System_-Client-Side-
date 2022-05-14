@@ -5,9 +5,10 @@ import "./SelectedItem.css";
 
 const SelectedItem = () => {
   const navigate = useNavigate();
+  const [control, setControl] = useState(true);
   const { id } = useParams();
 
-  const [allProducts, setAllProducts] = useAllProducts();
+  const [allProducts] = useAllProducts();
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -15,43 +16,51 @@ const SelectedItem = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, [id]);
+  }, [id, control]);
 
-  // const handleUpdate = (id) => {
-  //   const previousQuantity = parseInt(product.quantity);
-  //   const quantity = previousQuantity - 1;
-  //   const updatedQuantity = quantity;
-  //   console.log(updatedQuantity, id);
+  const handleDeliver = () => {
+    const previousQuantity = product.quantity;
+    const newQuantity = previousQuantity - 1;
+    console.log(newQuantity);
 
-  //   const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
-  //   console.log(url);
-  //   fetch(url, {
-  //     method: "PUT",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify({ updatedQuantity }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setAllProducts(data);
-  //     });
-  // };
+    const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
+    console.log(url);
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ newQuantity }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount == 1) {
+          setControl(!control);
+        }
+        const updatedProduct = allProducts.filter(
+          (product) => product._id == id
+        );
+        console.log(updatedProduct);
+        setProduct(updatedProduct);
+      });
+  };
 
   const handleRestock = (event) => {
     console.log("clicked");
     event.preventDefault();
-    const restockAmount = parseInt(event.target.amount.value);
-    console.log(restockAmount);
 
-    const previousQuantity = parseInt(product.quantity);
-    console.log(previousQuantity);
+    const restockAmount = parseInt(event.target.amount.value);
+    console.log(restockAmount, typeof restockAmount);
+
+    const previousQuantity = product.quantity;
+    console.log(previousQuantity, typeof previousQuantity);
+
     const newQuantity = previousQuantity + restockAmount;
-    console.log(newQuantity, id);
+    console.log(newQuantity, typeof newQuantity);
 
     const url = `https://cryptic-hollows-45399.herokuapp.com/products/${id}`;
-    console.log(url);
+    // console.log(url);
     console.log(JSON.stringify({ newQuantity }));
 
     fetch(url, {
@@ -63,13 +72,15 @@ const SelectedItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(product.quantity);
-        // const updatedProduct = allProducts.filter((pd) => pd._id == id);
-        // setProduct(updatedProduct);
-        console.log(product);
-        // if (data.modifiedCount == 1) {
-        //   product.quantity = newQuantity;
-        // }
+        console.log(data);
+        if (data.modifiedCount == 1) {
+          setControl(!control);
+        }
+        const updatedProduct = allProducts.filter(
+          (product) => product._id == id
+        );
+        console.log(updatedProduct);
+        setProduct(updatedProduct);
       });
   };
 
@@ -86,13 +97,13 @@ const SelectedItem = () => {
               Stock Quantity: {product.quantity} {product.unit}
             </p>
             <p className="mb-1">
-              {/* Price: Tk. {product.price}/ {product.unit} */}
-              Price:10
+              Price: Tk. {product.price}/ {product.unit}
             </p>
             <p className="mb-1">Supplier : {product.supplier}</p>
+            <p className="mb-1">Product ID : {product._id}</p>
             <button
               className="btn btn-primary d-block mx-auto px-5 mt-4"
-              // onClick={() => handleUpdate(id)}
+              onClick={handleDeliver}
             >
               Delivered
             </button>

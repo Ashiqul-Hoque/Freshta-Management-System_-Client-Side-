@@ -12,7 +12,7 @@ const ManageItem = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1500);
   }, []);
 
   const override = css`
