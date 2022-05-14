@@ -9,14 +9,14 @@ const AddItem = () => {
   const handleAddItem = (event) => {
     event.preventDefault();
 
-    const name = event.target.name.value;
-    const img = event.target.image.value;
-    const category = event.target.category.value;
-    const price = event.target.price.value;
-    const unit = event.target.unit.value;
-    const quantity = parseInt(event.target.quantity.value);
-    const supplier = event.target.supplier.value;
-    const userEmail = user.email;
+    let name = event.target.name.value;
+    let img = event.target.image.value;
+    let category = event.target.category.value;
+    let price = event.target.price.value;
+    let unit = event.target.unit.value;
+    let quantity = parseInt(event.target.quantity.value);
+    let supplier = event.target.supplier.value;
+    let userEmail = user.email;
 
     const url = `https://cryptic-hollows-45399.herokuapp.com/product`;
     fetch(url, {

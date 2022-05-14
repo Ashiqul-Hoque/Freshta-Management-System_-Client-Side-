@@ -18,7 +18,7 @@ const SingleProduct = (props) => {
           <div className="d-block my-auto">
             <img src={img} className="card-img-top" alt="" />
           </div>
-          <div className="card-body">
+          <div className="card-body mb-2">
             <p className="mb-1">
               Stock: {quantity} {unit}
             </p>
