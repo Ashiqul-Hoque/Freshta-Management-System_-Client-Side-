@@ -103,7 +103,7 @@ const AddItem = () => {
           Submit
         </button>
       </form>
-      <ToastContainer></ToastContainer>
+      <ToastContainer autoClose={1000}></ToastContainer>
     </div>
   );
 };

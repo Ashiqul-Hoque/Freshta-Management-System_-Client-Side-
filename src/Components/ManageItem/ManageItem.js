@@ -71,7 +71,9 @@ const ManageItem = () => {
         ) : (
           <div>
             <div className="my-4">
-              <h3 className="ms-5 text-primary">Vegetables</h3>
+              <h3 className="ms-5 text-primary">
+                Vegetables ({vegetables.length})
+              </h3>
               <div className="card-container px-5 my-4">
                 {vegetables.map((product) => (
                   <SingleProduct
@@ -83,7 +85,7 @@ const ManageItem = () => {
               </div>
             </div>
             <div className="my-5">
-              <h3 className="ms-5 text-primary">Fruits</h3>
+              <h3 className="ms-5 text-primary">Fruits ({fruits.length})</h3>
               <div className="card-container px-5 my-4">
                 {fruits.map((product) => (
                   <SingleProduct
@@ -95,7 +97,7 @@ const ManageItem = () => {
               </div>
             </div>
             <div className="my-5">
-              <h3 className="ms-5 text-primary">Meat</h3>
+              <h3 className="ms-5 text-primary">Meat ({meat.length})</h3>
               <div className="card-container px-5 my-4">
                 {meat.map((product) => (
                   <SingleProduct
@@ -107,7 +109,7 @@ const ManageItem = () => {
               </div>
             </div>
             <div className="my-5">
-              <h3 className="ms-5 text-primary">Fish</h3>
+              <h3 className="ms-5 text-primary">Fish ({fish.length})</h3>
               <div className="card-container px-5 my-4">
                 {fish.map((product) => (
                   <SingleProduct
