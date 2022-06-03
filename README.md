@@ -2,17 +2,17 @@
 
 ## Live site: https://freshta-management-system.web.app/
 
-## Github link (Server site): https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Ashiqul-Hoque
+## Github link (Server site): https://github.com/Ashiqul-Hoque/Freshta-Management-System_Server-Side
 
 ## Project Summary:
 
-- This is a fresh product management site
-- New user can be created
-- Products are shown in category wise
-- Only user can view all products & add new product
-- Only user can Delete/Update product
-- Some articles are given in blogs section
-- User authentication integrated
+- This is a fresh product management site.
+- New user can be created.
+- Products are shown in category wise.
+- Only user can view all products & add new product.
+- Only user can Delete/Update product.
+- Some articles are given in blogs section.
+- User authentication integrated.
 
 ## Built With:
 
