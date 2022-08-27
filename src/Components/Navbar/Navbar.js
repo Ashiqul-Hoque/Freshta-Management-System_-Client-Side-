@@ -90,7 +90,7 @@ const Navbar = () => {
               </>
             )}
 
-            <li className="my-auto">
+            {/* <li className="my-auto">
               <NavLink
                 className={({ isActive }) =>
                   isActive ? "active-link" : "link"
@@ -99,7 +99,7 @@ const Navbar = () => {
               >
                 Blogs
               </NavLink>
-            </li>
+            </li> */}
 
             <li>
               {user ? (
